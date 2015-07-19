@@ -3,4 +3,4 @@
 
 Assignment 1 - Introduction to Software Engineering - 2014
 
-![Screenshot](https://github.com/KonradJanica/Simtersection/blob/Screenshot.jpg?raw=true)
+![Screenshot](https://github.com/KonradJanica/Simtersection/blob/Screenshot.png?raw=true)
