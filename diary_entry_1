@@ -1,0 +1,35 @@
+20/03/2014
+
+First Impressions of Simtersection code:
+
+The source code is sorted into separate files contained in appropriately named folders/subfolders with clearly labelled filenames. This structure ensures proper organisation and allows other programmers who are unfamiliar with the code to understand it quickly. Likewise, most variable names are suitable and provide enough information to comprehend their usage. 
+
+Comments are present throughout the code, however detail is lacking for certain classes/functions, which inturn creates hurdles of interpretation for others trying to understand the code. For example, in the road.java constructor there exists over 100 lines of code with very minimal explanation, this code could easily be confused by it's own writer which means it would be especially difficult for an unfamiliar programmer to interpret.
+
+Possible Bugs Found:
+
+1) Taxi entities are only spawned North side of Frome Road. -Possibly intended behaviour (although very unlikely because it is a traffic congestion simulation)
+
+2) Taxis' always go in the same direction; towards the taxi rank location. (even if it is disabled.) -Possibly intended, very similar to bug #1 above.
+
+3) Taxis' don't pick up or drop off passengers -Definitely not working as intended! (per assignment instructions)
+
+4) Passengers don't stop (and queue?) at taxi rank. 
+
+5) "are you sure" quit dialog. -Found on the TODO list. Not sure if unfinished qualifies as a bug.
+
+Initial Thoughts of Effort Required to Fix Above Bugs:
+
+1) The code responsible for spawning Taxi entities seems to be in AddCarEvent.java (more precisely inside the AddCarEvent(long, Lane, double) constructor). It seems that the developer made this an intended feature because the only switch case that has Taxi spawning probability not zero is from Frome Road. However, if it is indeed a bug, the fix would involve adding more cases for the other 3 roads in the intersection and then assigning them the proper TAXI_PROB variable.
+
+2) My initial interpretation of this bug is that the Taxi entities are hard-coded to spawn on Frome Road only if they are going to be turning left towards the Taxi Rank. To fix this would first require Bug#1 to be fixed and then a change in the way Taxis' are spawned. However, the method the Taxi entities are spawned is suggesting that this is intended behaviour.
+
+3) After a brief search through the coding, it looks like there is no implementation for Taxis' to remove or add Pedestrian entities randomly. Bug#4 must be fixed before Bug#3 can function correctly. The effort required is quite substantial due to there being no implementation for this. In order to fix this bug several events must occur: 
+	i)Once the taxi stops there must be a random chance that a Pedestrian will be spawned near the Taxi Rank.
+	ii)Bug#4 must be fixed (see below for #4).
+	iii)When taxi is unloaded, Pedestrians from Taxi Rank must be collected by the front taxi and first (or more?) Pedestrian entity(s?) is then removed.
+
+4) To fix this bug would require another stopping point (at the Taxi Rank) be made for the Pedestrians with a specific random chance. After a Pedestrian entity is stopped it should be pushed into an array to allow for ordering in the queue.    
+
+5) There is no implementation for this bug but the fix is very common and detailed instructions would be available from Java sources. Just need to modify the "Quit" button object to prompt the user before exiting the program.
+

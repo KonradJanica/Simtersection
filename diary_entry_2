@@ -1,0 +1,13 @@
+02/04/2014
+
+Bug: Taxis do not stop at a taxi stand and drop off and/or pick up passengers randomly.
+
+Bug fix completed. Detailed bug fix step-by-step can be found in the "notes" file included in this directory.
+
+Decided bug fix was complete by running the GUI non-stop for 15 minutes at a decent speed to try and catch thrown exceptions with the use of else statements and system.print.ln. 
+
+Another initial method of concluding the bug was indeed fixed was to observe the passengers at a slow tick rate to see if they were positioning correctly and being removed/added as necessary.
+
+The last method used was to physically draw (using .drawRect/.drawOval) all the implemented Rectangle2D objects as well as other X/Y co-ordinates used by the bug fix coding. This allows initial graphical feedback to check that Pedestrians are being caught in the loadingArea (queue) correctly and are working as intended. 
+
+

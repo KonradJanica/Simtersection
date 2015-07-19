@@ -1,0 +1,11 @@
+5/04/2013
+
+Bug is fixed and tested accordingly. The bug was tested using the included testHarness test.java. I suspect I over-complicated the testing requirements because the testHarness took several times longer than the bug fix itself. That being said now that the harness is functioning, adding addition tests is an easy task.
+
+The testHarness works by running another similar thread concurrently to the one running in the SimWindow. These two threads have the same current tick variable (cTick) and hence allow injection entities and events at specific times. Using if/else conditions in the testHarness thread, I was able to call methods, reset the app, and run tests at the required intervals.
+
+Tests revealed interesting results. The equivalence cases showed a flaw in the capturing design of the loadingArea and in some cases Pedestrians will slip through it and continue walking. This occurs when two Pedestrians are very close to eachother and are coming from the East into the loadingArea/Capture-area. The reasoning for this is quite logical, due to the way the queue is designed to add dimensions to make the Passengers queue behind each other in a line (real life queue), Pedestrians from the east will pass the capture point if they are to close to eachother because the point will be moved back behind them.
+
+Another bug found, which was caused by the taxi stopping time being increased without thought, was passengers exitting from new taxis walking too far North over the pedestrianLane and thus hence walking through traffic on the north side of Frome Road. Fixed by adding extra terminating conditions based on the Y co-ordinate position of the Passenger.
+
+If I were to attempt another testHarness, this time I would first analyse how many tests would need to be run and how much time is given to make it. This is because my testHarness is setup in such a way that I can implement tests for any part of the simulation from it, instead of just making a harness to test very specific parts of the code which would take a lot less time and allow for more resources being allocated else where. That being said, my testHarness is ideal if it is found that the maintenance of the program would be required to be regular and hence scheduled tests for different parts of the code would need to be run regularly.

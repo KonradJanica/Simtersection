@@ -1,0 +1,29 @@
+v2 testHarness
+
+Change notes: 1) Removed previous multi-threaded implementation to allow it to run in Java 1.6
+	      2) Added .jar file
+
+Run: In terminal use command "java test" or "java -jar testHarness.jar"
+
+Testing: Same as below.
+
+Instructions: Same as below.
+
+NOTE: Simulation can now be sped up to maximum without altering results.
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+v1 testHarness
+
+Testing:
+	1) Boundary/equivalence cases for Pedestrian waiting zone.
+	2) Taxi pick-ups dynamically by user input 
+		NOTE: "Passed!" means (final amount of pedestrians waiting) = (amount of pedestrians waiting - amount of taxis spawned)
+			With negative summations changing to 0. 
+
+Instructions:
+	To run, in terminal (with correct directory) execute command "java test"
+	And follow prompts.
+	Stop and Start buttons can be used at anytime to restart tests using same user input.
+
+NOTE: Simulation can be sped up using slider but results may vary.
